@@ -22,3 +22,8 @@ def user_upload():
     image = Image.open(BytesIO(image_data))
     image.show()  # Test to show that we get the image
     return render_template('upload.html')
+
+
+@app.route('/examples', methods=('GET', 'POST'))
+def show_examples():
+    return render_template('examples.html')
