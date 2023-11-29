@@ -20,4 +20,5 @@ def user_upload():
     file = request.files['file']
     image_data = file.read();
     image = Image.open(BytesIO(image_data))
-    image.show()
+    image.show()  # Test to show that we get the image
+    return render_template('upload.html')
