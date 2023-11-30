@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from PIL import Image
 from io import BytesIO
+from example_ids import example_ids
 import random
 
 app = Flask(__name__)
@@ -26,4 +27,6 @@ def user_upload():
 
 @app.route('/examples', methods=('GET', 'POST'))
 def show_examples():
-    return render_template('examples.html')
+    shuffled_ids = example_ids
+    random.shuffle(shuffled_ids)
+    return render_template('examples.html', random_example=shuffled_ids[random.randint(0, len(shuffled_ids))])
