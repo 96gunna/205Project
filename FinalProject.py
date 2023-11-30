@@ -4,6 +4,7 @@ from PIL import Image
 from io import BytesIO
 from example_ids import example_ids
 import random
+import base64
 
 app = Flask(__name__)
 Bootstrap5(app)
@@ -21,8 +22,9 @@ def user_upload():
     file = request.files['file']
     image_data = file.read();
     image = Image.open(BytesIO(image_data))
-    image.show()  # Test to show that we get the image
-    return render_template('upload.html')
+    image_data_base64 = base64.b64encode(image_data).decode('utf-8')
+    # image.show()  # Test to show that we get the image
+    return render_template('upload.html', image_data_base64=image_data_base64)
 
 
 @app.route('/examples', methods=('GET', 'POST'))
