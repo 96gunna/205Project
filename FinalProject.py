@@ -29,4 +29,6 @@ def user_upload():
 def show_examples():
     shuffled_ids = example_ids
     random.shuffle(shuffled_ids)
-    return render_template('examples.html', random_example=shuffled_ids[random.randint(0, len(shuffled_ids))])
+    random_example = shuffled_ids[random.randint(0, len(shuffled_ids)-1)]
+    return render_template('examples.html',
+                           random_example=random_example)
