@@ -29,7 +29,8 @@
             margin: 5px 0;
         }
         img {
-            max-width: 50%; 
+            width: 20%;
+            height: auto;
             margin-top: 10px; 
         }
     </style>
@@ -40,8 +41,8 @@
     <div class="form-container">
         <h1>Image Uploaded</h1>
 
-        {% if image_data_base64 %}
-    <img src="data:image/png;base64,{{ image_data_base64 }}" alt="Uploaded Image">
+        {% if image_path %}
+        <img src="{{ url_for('serve_uploaded_file', filename=image_path) }}" alt="Uploaded Image">
 {% endif %}
 
         <form method="get" action="{{ url_for('index') }}">
