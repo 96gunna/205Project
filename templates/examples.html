@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {{ bootstrap.load_css() }}
+    {{ bootstrap.load_js() }}
     <title>Title</title>
 </head>
-<body>
-    Hello World
+<body class="text-center">
+    <br>
+    <h3>Example image and edits</h3>
+    <br>
+    Original:
+    <br>
+    <img src="/static/example_images/{{ random_example }}.jpg"
+         width="600"
+         class="img-fluid rounded"
+         alt="{{ random_example }}"/>
 </body>
 </html>
