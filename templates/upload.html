@@ -48,15 +48,13 @@
         <form method="get" action="{{ url_for('index') }}">
             <label for="filter"> Edit: </label>
             <select name="filter" id="filter" class="form-select">
-                <option value="">Please select an option </option>
+                <option value="">Please select a filter </option>
                 <option value="grayscale">Grayscale</option>
                 <option value="sepia">Sepia</option>
                 <option value="inverse">Inverse</option>
                 <option value="negative">Negative</option>
-                <option value="downscale">Downscale</option>
-                <option value="upscale">Upscale</option>
             </select>
-            <button type="submit" class="btn btn-secondary">Apply Edit</button>
+            <button type="submit" class="btn btn-secondary">Apply Filter</button>
         </form>
 
     </div>
