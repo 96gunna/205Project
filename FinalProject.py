@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from PIL import Image
 from io import BytesIO
+from example_ids import example_ids
 import random
 import os
 from flask import send_from_directory
@@ -37,4 +38,8 @@ def serve_uploaded_file(filename):
 
 @app.route('/examples', methods=('GET', 'POST'))
 def show_examples():
-    return render_template('examples.html')
+    shuffled_ids = example_ids
+    random.shuffle(shuffled_ids)
+    random_example = shuffled_ids[random.randint(0, len(shuffled_ids)-1)]
+    return render_template('examples.html',
+                           random_example=random_example)
