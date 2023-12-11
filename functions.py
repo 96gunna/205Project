@@ -53,4 +53,3 @@ def Thumbnail(p):
     output_path = os.path.join("static", "thumbnailEdit.jpg")
     im.save(output_path)
     return "thumbnailEdit.jpg"
-
