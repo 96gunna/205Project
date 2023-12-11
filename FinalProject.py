@@ -37,7 +37,6 @@ def user_upload():
     flash('No file uploaded.')
     return redirect(url_for('index'))
 
-<<<<<<< HEAD
 @app.route('/apply_filter', methods=['POST'])
 def apply_filter():
     filter_type = request.form.get('filter')
@@ -60,8 +59,6 @@ def apply_filter_to_image(image_path, filter_type):
     if filter_type in filter_functions:
         return filter_functions[filter_type](image_path)
     return image_path
-=======
->>>>>>> 4f56c4b6cc4c7d2cfa386d5af1623d3e2f52a1b8
 
 @app.route('/uploads/<filename>')
 def serve_uploaded_file(filename):
