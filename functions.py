@@ -4,7 +4,7 @@ import os
 def Grayscale(p):
     image = p
     im = Image.open(image)
-    g_list = g_list = [(
+    g_list = [(
         int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
         int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
         int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000)
