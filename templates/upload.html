@@ -45,13 +45,13 @@
         <img src="{{ url_for('serve_uploaded_file', filename=image_path) }}" alt="Uploaded Image">
 {% endif %}
 
-        <form method="get" action="{{ url_for('index') }}">
+        <form method="post" action="{{ url_for('apply_filter') }}">
             <label for="filter"> Edit: </label>
             <select name="filter" id="filter" class="form-select">
                 <option value="">Please select a filter </option>
                 <option value="grayscale">Grayscale</option>
                 <option value="sepia">Sepia</option>
-                <option value="inverse">Inverse</option>
+                <option value="thumbnail">Thumbnail</option>
                 <option value="negative">Negative</option>
             </select>
             <button type="submit" class="btn btn-secondary">Apply Filter</button>
