@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from transformationFunctions import scaling_fewer_pixels, scaling_up
+from functions import Grayscale, Sepia, Negative, Thumbnail
 from flask_bootstrap import Bootstrap5
 from PIL import Image
 from io import BytesIO
@@ -90,7 +91,15 @@ def edit():
         uploaded_image_path = os.path.join(app.config['UPLOAD_FOLDER'], "abac-rule-summary.png")
         # "/uploads/abac-rule-summary.png"  # Replace with the actual path
 
-        if additional_filter_type == 'scaling_fewer_pixels':
+        if filter_type == 'grayscale':
+            transformed_image_path = Grayscale(uploaded_image_path)  # Assuming you want to apply Grayscale directly
+        elif filter_type == 'sepia':
+            transformed_image_path = Sepia(uploaded_image_path)  # Assuming you want to apply Sepia directly
+        elif filter_type == 'negative':
+            transformed_image_path = Negative(uploaded_image_path)  # Assuming you want to apply Negative directly
+        # Add other filter conditions as needed
+
+        elif additional_filter_type == 'scaling_fewer_pixels':
             transformed_image_path = scaling_fewer_pixels(uploaded_image_path)
         elif additional_filter_type == 'scaling_up':
             transformed_image_path = scaling_up(uploaded_image_path)
