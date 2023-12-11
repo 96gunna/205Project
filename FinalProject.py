@@ -49,7 +49,6 @@ def apply_filter():
     return redirect(url_for('index'))
 
 def apply_filter_to_image(image_path, filter_type):
-    # Map filter types to function calls
     filter_functions = {
         'grayscale': Grayscale,
         'sepia': Sepia,
@@ -80,7 +79,7 @@ def edit():
         filter_type = request.form.get('filter')
         additional_filter_type = request.form.get('additional_filter')
         uploaded_image_path = os.path.join(app.config['UPLOAD_FOLDER'], "abac-rule-summary.png")
-        # "/uploads/abac-rule-summary.png"  # Replace with the actual path
+        # "/uploads/abac-rule-summary.png"  
 
         if additional_filter_type == 'scaling_fewer_pixels':
             transformed_image_path = scaling_fewer_pixels(uploaded_image_path)
