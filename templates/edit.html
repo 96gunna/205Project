@@ -9,7 +9,7 @@
 <body>
     {% if transformed_image_path %}
         <h2>Transformed Image</h2>
-        <img src="{{ transformed_image_path }}" alt="Transformed Image">
+        <img src="{{ '/' + transformed_image_path }}" alt="{{ transformed_image_path }}">
     {% else %}
         <p>No transformed image available.</p>
     {% endif %}
