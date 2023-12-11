@@ -45,7 +45,13 @@
         <img src="{{ url_for('serve_uploaded_file', filename=image_path) }}" alt="Uploaded Image">
 {% endif %}
 
-        <form method="get" action="{{ url_for('index') }}">
+        {% if transformed_image_path %}
+        <img src="{{ url_for('serve_uploaded_file', filename=transformed_image_path) }}" alt="Transformed Image">
+{% endif %}
+
+
+        <!-- <form method="get" action="{{ url_for('index') }}"> -->
+            <form method="post" action="{{ url_for('edit') }}">
             <label for="filter"> Edit: </label>
             <select name="filter" id="filter" class="form-select">
                 <option value="">Please select a filter </option>
@@ -54,7 +60,22 @@
                 <option value="inverse">Inverse</option>
                 <option value="negative">Negative</option>
             </select>
+
+            <!-- Add another dropdown for additional transformations -->
+            <label for="additional_filter"> Transformation Edits: </label>
+            <select name="additional_filter" id="additional_filter" class="form-select">
+                <option value="">Please select an option </option>
+                <!-- Add your additional transformation options here -->
+
+                <option value="scaling_fewer_pixels">Scaling Down</option>
+                <option value="scaling_up">Scaling Up</option>
+
+
+            </select>
+            
             <button type="submit" class="btn btn-secondary">Apply Filter</button>
+
+            
         </form>
 
     </div>
