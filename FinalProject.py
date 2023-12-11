@@ -35,14 +35,12 @@ def index():
 @app.route('/upload', methods=['POST'])
 def user_upload():
     file = request.files['file']
-
     if file:
         filename = file.filename
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         session['uploaded_file'] = filename
         return render_template('upload.html', image_path=filename)
-
     flash('No file uploaded.')
     return redirect(url_for('index'))
 
@@ -83,12 +81,12 @@ def show_examples():
                            random_example=random_example)
 
 
-@app.route('/edit', methods=['GET', 'POST'])
-def edit():
+@app.route('/edit/<name>', methods=['GET', 'POST'])
+def edit(name):
     if request.method == 'POST':
         filter_type = request.form.get('filter')
         additional_filter_type = request.form.get('additional_filter')
-        uploaded_image_path = os.path.join(app.config['UPLOAD_FOLDER'], "abac-rule-summary.png")
+        uploaded_image_path = os.path.join(app.config['UPLOAD_FOLDER'], name)
         # "/uploads/abac-rule-summary.png"  # Replace with the actual path
 
         if filter_type == 'grayscale':
