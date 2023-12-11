@@ -8,6 +8,14 @@ import random
 import os
 from flask import send_from_directory
 
+
+""" CST 205
+Second Image
+Users can upload and image to then apply various filters or transformations to.
+Matthew Custodio, Mariana Duran, Alfredo Gunn, Ryan Mauvais, Sydney Stalker
+12/13/2323
+"""
+
 UPLOAD_FOLDER = 'uploads'
 
 app = Flask(__name__)
