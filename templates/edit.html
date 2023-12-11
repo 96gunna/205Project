@@ -7,6 +7,11 @@
     <title>Image Edits</title>
 </head>
 <body>
-    Hello World
+    {% if transformed_image_path %}
+        <h2>Transformed Image</h2>
+        <img src="{{ url_for('serve_uploaded_file', filename=transformed_image_path) }}" alt="Transformed Image">
+    {% else %}
+        <p>No transformed image available.</p>
+    {% endif %}
 </body>
 </html>
