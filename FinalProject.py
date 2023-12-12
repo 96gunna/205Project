@@ -77,8 +77,17 @@ def show_examples():
     shuffled_ids = example_ids
     random.shuffle(shuffled_ids)
     random_example = shuffled_ids[random.randint(0, len(shuffled_ids) - 1)]
+    pathway = os.path.join("static","example_images",random_example+".jpg")
+    transformed_image_path1 = Grayscale(pathway)  
+    transformed_image_path2 = Sepia(pathway)  
+    transformed_image_path3 = Negative(pathway) 
+    
+    
+    
     return render_template('examples.html',
-                           random_example=random_example)
+                           random_example=random_example, transformed_image_path1 = transformed_image_path1, transformed_image_path2= transformed_image_path2, transformed_image_path3 = transformed_image_path3)
+            
+   
 
 
 @app.route('/edit/<name>', methods=['GET', 'POST'])
