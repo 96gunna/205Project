@@ -1,15 +1,7 @@
+# Mariana, Matthew, and Alfredo
 from PIL import Image
 import os
 
-def Grayscale(image_path):
-    im = Image.open(image_path)
-    g_list = [
-        (
-            int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
-            int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
-            int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000)
-        ) for p in im.getdata()
-    ]
 
 def Grayscale(p):
     image = p
