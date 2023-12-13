@@ -8,8 +8,10 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
             height: 80vh;
             margin: 0;
             background-color: #f2f2f2;
@@ -20,6 +22,8 @@
         }
         h1 {
             text-align: top;
+=======
+>>>>>>> ec25ae20073cd453ebc07368129fca1e4887b877
         }
         form {
             display: flex;
@@ -27,22 +31,25 @@
             align-items: center;
         }
         img {
-            width: 15%;
             height: auto;
-            margin-top: 10px; 
         }
     </style>
 </head>
 <body>
-</head>
-<body>
     {% if transformed_image_path %}
-        <h2>Transformed Image</h2>
-        <img src="{{ '/' + transformed_image_path }}" alt="{{ transformed_image_path }}">
-        <a href="{{  '/' + transformed_image_path }}" download>Download Image</a>
+        <h2>Edit:</h2>
+        <br>
+        <img src="{{ '/' + transformed_image_path }}"
+             alt="{{ transformed_image_path }}"
+             width="600"
+             class="img-fluid rounded">
+        <a href="{{  '/' + transformed_image_path }}" class="btn btn-secondary mb-2" download>Download Image</a>
     {% else %}
-        <p>No transformed image available.</p>
+        <p>No image available.</p>
     {% endif %}
+    <br><br>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-2">Back to Home Page</a>
+    <br><br>
 </body>
     <!-- Ryan Mauvais -->
 <!-- Add a button to go back to upload, to do a different transformation or edit -->
