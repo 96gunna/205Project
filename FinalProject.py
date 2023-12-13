@@ -56,7 +56,6 @@ def apply_filter():
     return redirect(url_for('index'))
 
 def apply_filter_to_image(image_path, filter_type):
-    # Map filter types to function calls
     filter_functions = {
         'grayscale': Grayscale,
         'sepia': Sepia,
