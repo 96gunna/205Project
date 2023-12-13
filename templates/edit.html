@@ -5,11 +5,40 @@
     {{ bootstrap.load_css() }}
     {{ bootstrap.load_js() }}
     <title>Image Edits</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            margin: 0;
+        }
+        .form-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        h1 {
+            text-align: top;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 15%;
+            height: auto;
+            margin-top: 10px; 
+        }
+    </style>
+</head>
+<body>
 </head>
 <body>
     {% if transformed_image_path %}
         <h2>Transformed Image</h2>
         <img src="{{ '/' + transformed_image_path }}" alt="{{ transformed_image_path }}">
+        <a href="{{  '/' + transformed_image_path }}" download>Download Image</a>
     {% else %}
         <p>No transformed image available.</p>
     {% endif %}
