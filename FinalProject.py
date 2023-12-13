@@ -56,7 +56,6 @@ def apply_filter():
     return redirect(url_for('index'))
 
 def apply_filter_to_image(image_path, filter_type):
-    # Map filter types to function calls
     filter_functions = {
         'grayscale': Grayscale,
         'sepia': Sepia,
@@ -103,7 +102,9 @@ def edit(name):
         elif filter_type == 'sepia':
             transformed_image_path = Sepia(uploaded_image_path)  # Assuming you want to apply Sepia directly
         elif filter_type == 'negative':
-            transformed_image_path = Negative(uploaded_image_path)  # Assuming you want to apply Negative directly
+            transformed_image_path = Negative(uploaded_image_path)  # Assuming you want to apply Negative directly'
+        elif filter_type == 'thumbnail':
+            transformed_image_path = Thumbnail(uploaded_image_path)
         # Add other filter conditions as needed
 
         elif additional_filter_type == 'scaling_fewer_pixels':
