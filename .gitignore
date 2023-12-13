@@ -1,3 +1,10 @@
 # Ignore compiled Python files
 
 __pycache__/
+
+*.pyc
+*.pyo
+
+*.cpython-3.11.pyc
+
+

@@ -51,7 +51,7 @@
 
 
         <!-- <form method="get" action="{{ url_for('index') }}"> -->
-            <form method="post" action="{{ url_for('edit') }}">
+            <form method="post" action="{{ url_for('edit', name=image_path) }}">
             <label for="filter"> Edit: </label>
             <select name="filter" id="filter" class="form-select">
                 <option value="">Please select a filter </option>
@@ -61,6 +61,12 @@
                 <option value="negative">Negative</option>
             </select>
 
+            <button type="submit" class="btn btn-secondary">Apply Filter</button>
+
+
+        </form>
+
+        <form method="post" action="{{ url_for('edit', name=image_path) }}">
             <!-- Add another dropdown for additional transformations -->
             <label for="additional_filter"> Transformation Edits: </label>
             <select name="additional_filter" id="additional_filter" class="form-select">
@@ -73,7 +79,7 @@
 
             </select>
             
-            <button type="submit" class="btn btn-secondary">Apply Filter</button>
+            <button type="submit" class="btn btn-secondary">Apply Transformation</button>
 
             
         </form>

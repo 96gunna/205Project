@@ -2,6 +2,7 @@ from PIL import Image
 import numpy as np
 import os
 
+
 def scaling_fewer_pixels(your_image):
     my_src = Image.open(your_image)
     w, h = my_src.width // 2, my_src.height // 2
@@ -17,7 +18,7 @@ def scaling_fewer_pixels(your_image):
         target_x += 1
 
     # my_trgt.show()
-    transformed_path = os.path.join("uploads", "transformed_image_scaling_fewer_pixels.jpg")
+    transformed_path = os.path.join("static", "images", "transformed_image_scaling_fewer_pixels.jpg")
     my_trgt.save(transformed_path)
 
     return transformed_path
@@ -39,8 +40,7 @@ def scaling_up(your_image):
         target_x += 1
 
     # my_trgt.show()
-    transformed_path = os.path.join("uploads", "transformed_image_scaling_up.jpg")
+    transformed_path = os.path.join("static", "images", "transformed_image_scaling_up.jpg")
     my_trgt.save(transformed_path)
 
     return transformed_path
-
