@@ -14,6 +14,8 @@ def Grayscale(image_path):
 def Grayscale(p):
     image = p
     im = Image.open(image)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
     g_list = [(
         int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
         int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
@@ -37,6 +39,8 @@ def sepia(p):
 
 def Sepia(image_path):
     im = Image.open(image_path)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
     s_list = [sepia(pixel) for pixel in im.getdata()]
     im.putdata(s_list)
     output_path = os.path.join("static/images", "sepiaEdit.jpg")
@@ -45,6 +49,8 @@ def Sepia(image_path):
 
 def Negative(image_path):
     im = Image.open(image_path)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
     n_list = [(255 - p[0], 255 - p[1], 255 - p[2]) for p in im.getdata()]
     im.putdata(n_list)
     output_path = os.path.join("static/images", "NegativeEdit.jpg")
@@ -53,6 +59,8 @@ def Negative(image_path):
 
 def Thumbnail(image_path):
     im = Image.open(image_path)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
     trgt = im.resize((252, 253))
     output_path = os.path.join("static/images", "thumbnailEdit.jpg")
     trgt.save(output_path)
