@@ -11,6 +11,14 @@ def Grayscale(image_path):
         ) for p in im.getdata()
     ]
 
+def Grayscale(p):
+    image = p
+    im = Image.open(image)
+    g_list = [(
+        int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
+        int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000),
+        int((p[0] * 299 + p[1] * 587 + p[2] * 114) // 1000)
+        ) for p in im.getdata()]
     im.putdata(g_list)
     output_path = os.path.join("static/images", "grayscaleEdit.jpg")
     im.save(output_path)
