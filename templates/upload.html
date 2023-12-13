@@ -12,6 +12,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #e5e5e5;
         }
         .form-container {
             text-align: center;
@@ -49,8 +50,6 @@
         <img src="{{ url_for('serve_uploaded_file', filename=transformed_image_path) }}" alt="Transformed Image">
 {% endif %}
 
-
-        <!-- <form method="get" action="{{ url_for('index') }}"> -->
             <form method="post" action="{{ url_for('edit', name=image_path) }}">
             <label for="filter"> Edit: </label>
             <select name="filter" id="filter" class="form-select">

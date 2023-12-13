@@ -5,17 +5,46 @@
     {{ bootstrap.load_css() }}
     {{ bootstrap.load_js() }}
     <title>Home</title>
+    <style> 
+        body{
+            background-color: #e5e5e5;
+        }
+
+        p{
+            text-align: center;
+        }
+        img {
+    display: block;
+    margin: 0 auto;
+    width: 35%;
+}
+    </style>
 </head>
 <body class="container">
-    <h1 class="text-center">Image Upload</h1>
+    <br><br>
+    <h1 class="text-center"> Not Photoshop </h1>
+    <br>
+    <img src="/static/not_photoshop.png">
+    <br>
+    <h2 class="text-center">Image Upload</h2>
     <br><br>
     <div class="text-center">
+        <div>
+            Please upload a .png, .jpg, or .jpeg file to begin!
+        </div>
+        <br>
         <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+            <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
             <input type="submit" value="Upload">
         </form>
         <br>
         <a href="{{ url_for('show_examples') }}">View edit examples</a>
+    </div>
+    <br><br><br>
+    <div class="footer">
+        <br>
+        <p>This is a disclaimer text. This is actually 100% not Photoshop</p>
+        <p>Created by : Matthew Custodio, Mariana Duran, Alfredo Gunn, Ryan Mauvais, Sydney Stalker </p>
     </div>
 </body>
 </html>
